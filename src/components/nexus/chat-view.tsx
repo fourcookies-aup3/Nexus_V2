@@ -7,7 +7,7 @@ import { GlowBadge } from "@/components/nexus/glow-badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Mic, MicOff, ArrowLeft, Send, Play, AlertTriangle, Loader2, FileCode, Terminal as TerminalIcon, Package, Rocket, CheckCircle } from "lucide-react"
+import { Mic, MicOff, ArrowLeft, Send, Play, TriangleAlert as AlertTriangle, Loader as Loader2, FileCode, Terminal as TerminalIcon, Package, Rocket, CircleCheck as CheckCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const STEP_ICONS: Record<string, any> = {

@@ -8,7 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from "@/components/ui/dialog"
-import { ArrowLeft, Plus, Loader2, Brain, Code, Search, Mail, Zap, Database, Globe, Gamepad2, Cpu } from "lucide-react"
+import { ArrowLeft, Plus, Loader as Loader2, Brain, Code, Search, Mail, Zap, Database, Globe, Gamepad2, Cpu } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const AGENT_TYPE_ICONS: Record<string, any> = {

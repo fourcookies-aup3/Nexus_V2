@@ -3,7 +3,7 @@ import { supabase, type Agent, type NexusEvent } from "@/lib/supabase"
 import { NexusOrb } from "@/components/nexus/orb"
 import { HUDCard } from "@/components/nexus/hud-card"
 import { GlowBadge } from "@/components/nexus/glow-badge"
-import { MessageSquare, BarChart3, Terminal, Activity, Brain, Zap, Users, FolderOpen, Cpu } from "lucide-react"
+import { MessageSquare, ChartBar as BarChart3, Terminal, Activity, Brain, Zap, Users, FolderOpen, Cpu } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export type NexusView = "dashboard" | "chat" | "analytics" | "agents" | "workspace" | "system"

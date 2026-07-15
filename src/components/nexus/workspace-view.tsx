@@ -4,7 +4,7 @@ import { HUDCard } from "@/components/nexus/hud-card"
 import { GlowBadge } from "@/components/nexus/glow-badge"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { ArrowLeft, File, FilePlus, FileEdit, FileX, Terminal as TerminalIcon, AppWindow, Loader2, Folder } from "lucide-react"
+import { ArrowLeft, File, FilePlus, File as FileEdit, FileX, Terminal as TerminalIcon, AppWindow, Loader as Loader2, Folder } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const CHANGE_ICONS: Record<string, any> = {
