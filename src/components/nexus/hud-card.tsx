@@ -21,7 +21,6 @@ export function HUDCard({
       )}
       style={{ animation: `nexus-fade-up 0.5s ease-out ${delay}s both` }}
     >
-      {/* Corner brackets */}
       <span className="pointer-events-none absolute -top-px -left-px h-3 w-3 border-t-2 border-l-2 border-nexus" />
       <span className="pointer-events-none absolute -top-px -right-px h-3 w-3 border-t-2 border-r-2 border-nexus" />
       <span className="pointer-events-none absolute -bottom-px -left-px h-3 w-3 border-b-2 border-l-2 border-nexus" />

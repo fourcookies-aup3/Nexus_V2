@@ -6,8 +6,7 @@ export function ScanLine() {
       <div
         className="absolute left-0 right-0 h-px animate-nexus-scan"
         style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--nexus), transparent)",
+          background: "linear-gradient(90deg, transparent, var(--nexus), transparent)",
           boxShadow: "0 0 10px var(--nexus-glow)",
         }}
       />
@@ -26,8 +25,7 @@ export function DataStream({ count = 12 }: { count?: number }) {
           style={{
             left: `${(i / count) * 100}%`,
             height: `${20 + Math.random() * 40}%`,
-            background:
-              "linear-gradient(to bottom, transparent, var(--nexus-dim), transparent)",
+            background: "linear-gradient(to bottom, transparent, var(--nexus-dim), transparent)",
             animation: `nexus-data-stream ${4 + Math.random() * 6}s linear ${Math.random() * 5}s infinite`,
           }}
         />
@@ -89,10 +87,7 @@ export function TypewriterText({
     <span className={className}>
       {displayed}
       {!done && (
-        <span
-          className="inline-block w-0.5 h-4 bg-nexus ml-0.5 align-middle"
-          style={{ animation: "nexus-blink 0.8s step-end infinite" }}
-        />
+        <span className="inline-block w-0.5 h-4 bg-nexus ml-0.5 align-middle" style={{ animation: "nexus-blink 0.8s step-end infinite" }} />
       )}
     </span>
   )
@@ -108,9 +103,7 @@ export function Waveform({ active = true, bars = 24 }: { active?: boolean; bars?
           style={{
             height: "100%",
             transformOrigin: "center",
-            animation: active
-              ? `nexus-wave ${0.5 + (i % 5) * 0.15}s ease-in-out ${i * 0.04}s infinite`
-              : "none",
+            animation: active ? `nexus-wave ${0.5 + (i % 5) * 0.15}s ease-in-out ${i * 0.04}s infinite` : "none",
             opacity: active ? 0.8 : 0.2,
             transform: active ? undefined : "scaleY(0.15)",
           }}

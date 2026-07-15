@@ -28,13 +28,13 @@ import {
 } from "recharts"
 
 const activityData = [
-  { time: "00:00", tasks: 12, queries: 45, processing: 230 },
-  { time: "04:00", tasks: 8, queries: 32, processing: 180 },
-  { time: "08:00", tasks: 24, queries: 78, processing: 340 },
-  { time: "12:00", tasks: 31, queries: 95, processing: 420 },
-  { time: "16:00", tasks: 28, queries: 88, processing: 380 },
-  { time: "20:00", tasks: 19, queries: 62, processing: 290 },
-  { time: "24:00", tasks: 14, queries: 50, processing: 250 },
+  { time: "00:00", tasks: 12, queries: 45 },
+  { time: "04:00", tasks: 8, queries: 32 },
+  { time: "08:00", tasks: 24, queries: 78 },
+  { time: "12:00", tasks: 31, queries: 95 },
+  { time: "16:00", tasks: 28, queries: 88 },
+  { time: "20:00", tasks: 19, queries: 62 },
+  { time: "24:00", tasks: 14, queries: 50 },
 ]
 
 const capabilityData = [
@@ -68,7 +68,6 @@ const recentActions = [
 const chartConfig = {
   tasks: { label: "Tasks", color: "var(--chart-1)" },
   queries: { label: "Queries", color: "var(--chart-2)" },
-  processing: { label: "Processing", color: "var(--chart-3)" },
   completed: { label: "Completed", color: "var(--chart-1)" },
   pending: { label: "Pending", color: "var(--chart-5)" },
   value: { label: "Score", color: "var(--chart-1)" },
@@ -84,7 +83,6 @@ const STAT_CARDS = [
 export function AnalyticsView({ onBack }: { onBack: () => void }) {
   return (
     <div className="relative z-10 flex flex-col h-svh">
-      {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-nexus/10">
         <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 text-muted-foreground hover:text-nexus">
           <ArrowLeft className="h-4 w-4" />
@@ -96,15 +94,12 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
 
       <ScrollArea className="flex-1 nexus-scrollbar">
         <div className="max-w-6xl mx-auto px-6 py-8 space-y-6">
-          {/* Stat Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {STAT_CARDS.map((stat, i) => (
               <HUDCard key={stat.label} delay={i * 0.1} className="p-5">
                 <div className="flex items-start justify-between mb-3">
                   <stat.icon className="h-5 w-5 text-nexus/60" />
-                  <span
-                    className={`text-xs font-mono ${stat.trend === "up" ? "text-emerald-400" : "text-amber-400"}`}
-                  >
+                  <span className={`text-xs font-mono ${stat.trend === "up" ? "text-emerald-400" : "text-amber-400"}`}>
                     {stat.trend === "up" ? <TrendingUp className="inline h-3 w-3" /> : <TrendingDown className="inline h-3 w-3" />}
                     {" "}{stat.change}
                   </span>
@@ -115,30 +110,19 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
             ))}
           </div>
 
-          {/* Activity Chart */}
           <HUDCard delay={0.4} className="p-6">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="text-sm font-semibold text-foreground">24-Hour Activity</h3>
-                <p className="text-xs text-muted-foreground">Tasks, queries & processing load</p>
+                <p className="text-xs text-muted-foreground">Tasks & queries</p>
               </div>
               <GlowBadge variant="processing">Live</GlowBadge>
             </div>
             <ChartContainer config={chartConfig} className="h-[260px] w-full">
               <AreaChart data={activityData} accessibilityLayer margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="grad-tasks" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--color-tasks)" stopOpacity={0.5} />
-                    <stop offset="95%" stopColor="var(--color-tasks)" stopOpacity={0.05} />
-                  </linearGradient>
-                  <linearGradient id="grad-queries" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--color-queries)" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="var(--color-queries)" stopOpacity={0.05} />
-                  </linearGradient>
-                </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--nexus-dim)" />
                 <XAxis dataKey="time" tickLine={false} axisLine={false} tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} />
-                <YAxis tickLine={false} axisLine={false} tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} domain={[0, 'auto']} />
+                <YAxis tickLine={false} axisLine={false} tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} domain={[0, "auto"]} />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Area dataKey="queries" type="monotone" stroke="var(--color-queries)" fill="var(--color-queries)" fillOpacity={0.15} strokeWidth={2} dot={false} />
                 <Area dataKey="tasks" type="monotone" stroke="var(--color-tasks)" fill="var(--color-tasks)" fillOpacity={0.2} strokeWidth={2} dot={false} />
@@ -146,11 +130,10 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
             </ChartContainer>
           </HUDCard>
 
-          {/* Capability Radar + Task Bar */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <HUDCard delay={0.5} className="p-6">
               <h3 className="text-sm font-semibold text-foreground mb-4">Capability Matrix</h3>
-              <ChartContainer config={chartConfig} className="min-h-[260px] w-full">
+              <ChartContainer config={chartConfig} className="h-[260px] w-full">
                 <RadarChart data={capabilityData} accessibilityLayer>
                   <PolarGrid stroke="var(--nexus-dim)" />
                   <PolarAngleAxis dataKey="capability" tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} />
@@ -163,7 +146,7 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
 
             <HUDCard delay={0.6} className="p-6">
               <h3 className="text-sm font-semibold text-foreground mb-4">Weekly Task Completion</h3>
-              <ChartContainer config={chartConfig} className="min-h-[260px] w-full">
+              <ChartContainer config={chartConfig} className="h-[260px] w-full">
                 <BarChart data={taskData} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--nexus-dim)" />
                   <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} />
@@ -177,7 +160,6 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
             </HUDCard>
           </div>
 
-          {/* Recent Actions Table */}
           <HUDCard delay={0.7} className="p-6">
             <h3 className="text-sm font-semibold text-foreground mb-4">Recent Nexus Actions</h3>
             <Table>
@@ -193,9 +175,7 @@ export function AnalyticsView({ onBack }: { onBack: () => void }) {
                   <TableRow key={action.id} className="border-nexus/5 hover:bg-nexus/5">
                     <TableCell className="text-sm text-foreground font-mono">{action.action}</TableCell>
                     <TableCell>
-                      <GlowBadge variant={action.status === "completed" ? "success" : "processing"}>
-                        {action.status}
-                      </GlowBadge>
+                      <GlowBadge variant={action.status === "completed" ? "success" : "processing"}>{action.status}</GlowBadge>
                     </TableCell>
                     <TableCell className="text-xs text-muted-foreground text-right font-mono">{action.time}</TableCell>
                   </TableRow>

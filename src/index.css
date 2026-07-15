@@ -46,13 +46,6 @@
   --color-nexus-dim: var(--nexus-dim);
 }
 
-/*
-  ============================================================
-  NEXUS AI EMPLOYEE — JARVIS-STYLE THEME
-  Dark futuristic HUD aesthetic with cyan/electric blue accents
-  ============================================================
-*/
-
 :root {
   --radius: 0.625rem;
   --background: oklch(0.145 0 0);
@@ -138,123 +131,33 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "cv01", "cv02", "cv03";
   }
 }
-
-/* ============================================================
-   NEXUS ANIMATIONS
-   ============================================================ */
 
 @keyframes nexus-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.6; transform: scale(1.05); }
 }
-
 @keyframes nexus-pulse-ring {
   0% { transform: scale(0.8); opacity: 0.8; }
   100% { transform: scale(2.2); opacity: 0; }
 }
-
-@keyframes nexus-spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes nexus-spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes nexus-scan {
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-@keyframes nexus-flicker {
-  0%, 100% { opacity: 1; }
-  43% { opacity: 1; }
-  44% { opacity: 0.4; }
-  45% { opacity: 1; }
-  46% { opacity: 0.6; }
-  47% { opacity: 1; }
-}
-
-@keyframes nexus-data-stream {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-@keyframes nexus-glow-pulse {
-  0%, 100% { box-shadow: 0 0 5px var(--nexus-glow), 0 0 10px var(--nexus-glow); }
-  50% { box-shadow: 0 0 20px var(--nexus-glow), 0 0 40px var(--nexus-glow); }
-}
-
-@keyframes nexus-text-glow {
-  0%, 100% { text-shadow: 0 0 4px var(--nexus-glow); }
-  50% { text-shadow: 0 0 12px var(--nexus-glow), 0 0 20px var(--nexus-glow); }
-}
-
-@keyframes nexus-typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes nexus-blink {
-  50% { opacity: 0; }
-}
-
-@keyframes nexus-wave {
-  0%, 100% { transform: scaleY(0.3); }
-  50% { transform: scaleY(1); }
-}
-
-@keyframes nexus-slide-in-right {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes nexus-slide-in-left {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes nexus-fade-up {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes nexus-fade-scale {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes nexus-page-enter {
-  from { transform: scale(0.96) translateY(10px); opacity: 0; filter: blur(8px); }
-  to { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
-}
-
-@keyframes nexus-page-exit {
-  from { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
-  to { transform: scale(0.96) translateY(-10px); opacity: 0; filter: blur(8px); }
-}
-
-@keyframes nexus-count {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-@keyframes nexus-grid-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 50px 50px; }
-}
-
-/* ============================================================
-   NEXUS UTILITY CLASSES
-   ============================================================ */
+@keyframes nexus-spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes nexus-spin-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+@keyframes nexus-scan { 0% { transform: translateY(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(100vh); opacity: 0; } }
+@keyframes nexus-flicker { 0%, 100% { opacity: 1; } 43% { opacity: 1; } 44% { opacity: 0.4; } 45% { opacity: 1; } 46% { opacity: 0.6; } 47% { opacity: 1; } }
+@keyframes nexus-data-stream { 0% { transform: translateY(-100%); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(100vh); opacity: 0; } }
+@keyframes nexus-glow-pulse { 0%, 100% { box-shadow: 0 0 5px var(--nexus-glow), 0 0 10px var(--nexus-glow); } 50% { box-shadow: 0 0 20px var(--nexus-glow), 0 0 40px var(--nexus-glow); } }
+@keyframes nexus-text-glow { 0%, 100% { text-shadow: 0 0 4px var(--nexus-glow); } 50% { text-shadow: 0 0 12px var(--nexus-glow), 0 0 20px var(--nexus-glow); } }
+@keyframes nexus-blink { 50% { opacity: 0; } }
+@keyframes nexus-wave { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+@keyframes nexus-slide-in-right { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes nexus-slide-in-left { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes nexus-fade-up { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes nexus-fade-scale { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes nexus-page-enter { from { transform: scale(0.96) translateY(10px); opacity: 0; filter: blur(8px); } to { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); } }
+@keyframes nexus-page-exit { from { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); } to { transform: scale(0.96) translateY(-10px); opacity: 0; filter: blur(8px); } }
+@keyframes nexus-grid-move { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
 
 .animate-nexus-pulse { animation: nexus-pulse 2s ease-in-out infinite; }
 .animate-nexus-pulse-ring { animation: nexus-pulse-ring 2s ease-out infinite; }
@@ -276,23 +179,15 @@
 .nexus-border-glow { border-color: var(--nexus); box-shadow: 0 0 8px var(--nexus-glow), inset 0 0 8px var(--nexus-dim); }
 
 .nexus-grid-bg {
-  background-image:
-    linear-gradient(var(--nexus-dim) 1px, transparent 1px),
-    linear-gradient(90deg, var(--nexus-dim) 1px, transparent 1px);
+  background-image: linear-gradient(var(--nexus-dim) 1px, transparent 1px), linear-gradient(90deg, var(--nexus-dim) 1px, transparent 1px);
   background-size: 50px 50px;
 }
-
 .nexus-grid-animated {
-  background-image:
-    linear-gradient(var(--nexus-dim) 1px, transparent 1px),
-    linear-gradient(90deg, var(--nexus-dim) 1px, transparent 1px);
+  background-image: linear-gradient(var(--nexus-dim) 1px, transparent 1px), linear-gradient(90deg, var(--nexus-dim) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: nexus-grid-move 8s linear infinite;
 }
-
-.nexus-radial-bg {
-  background: radial-gradient(ellipse at center, var(--nexus-dim) 0%, transparent 70%);
-}
+.nexus-radial-bg { background: radial-gradient(ellipse at center, var(--nexus-dim) 0%, transparent 70%); }
 
 .nexus-scrollbar::-webkit-scrollbar { width: 4px; }
 .nexus-scrollbar::-webkit-scrollbar-track { background: transparent; }
@@ -300,10 +195,5 @@
 .nexus-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--nexus-glow); }
 
 .nexus-clip-corner {
-  clip-path: polygon(
-    0 12px, 12px 0,
-    calc(100% - 12px) 0, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    12px 100%, 0 calc(100% - 12px)
-  );
+  clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
 }

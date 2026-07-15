@@ -18,10 +18,7 @@ export function GlowBadge({
     processing: "border-nexus/40 text-nexus bg-nexus/10 animate-nexus-pulse",
   }
   return (
-    <Badge
-      variant="outline"
-      className={cn("font-mono text-xs tracking-wider uppercase", styles[variant], className)}
-    >
+    <Badge variant="outline" className={cn("font-mono text-xs tracking-wider uppercase", styles[variant], className)}>
       {children}
     </Badge>
   )
